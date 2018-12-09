@@ -202,9 +202,6 @@ class DirectoryService : public Executable, public Broadcastable {
 
   // Guard mode recovery. currently used only by lookup node.
   std::mutex m_mutexLookupStoreForGuardNodeUpdate;
-  // structure is as follows
-  // map<dsepochnumber, vector<turple>>
-  // turple = [Pubkey, Peer, timestamp]
   std::map<uint64_t, std::vector<DSGuardUpdateStruct>>
       m_lookupStoreForGuardNodeUpdate;
 
