@@ -429,6 +429,17 @@ bool Node::StartRetrieveHistory(const SyncType syncType,
   /// Retrieve sharding structure and setup relative variables
   BlockStorage::GetBlockStorage().GetShardStructure(m_mediator.m_ds->m_shards);
 
+#if 1  // clark
+  LOG_GENERAL(INFO, "shard size = " << m_mediator.m_ds->m_shards.size());
+  for (const auto shard : m_mediator.m_ds->m_shards) {
+    LOG_GENERAL(INFO, "shard start...");
+    for (const auto& node : shard) {
+      LOG_GENERAL(INFO, get<SHARD_NODE_PUBKEY>(node)
+                            << ", " << get<SHARD_NODE_PEER>(node));
+    }
+  }
+#endif
+
   if (!ipMapping.empty()) {
     string pubKey;
 
