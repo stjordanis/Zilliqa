@@ -5035,7 +5035,7 @@ bool Messenger::GetLookupSetShardsFromSeed(const vector<unsigned char>& src,
 }
 
 bool Messenger::SetLookupGetMicroBlockFromLookup(
-    vector<unsigned char>& dest, const unsigned int offset,
+    vector<unsigned char>& dst, const unsigned int offset,
     const vector<BlockHash>& microBlockHashes, uint32_t portNo) {
   LOG_MARKER();
 
@@ -5052,7 +5052,7 @@ bool Messenger::SetLookupGetMicroBlockFromLookup(
                 "LookupGetMicroBlockFromLookup initialization failed.");
     return false;
   }
-  return SerializeToArray(result, dest, offset);
+  return SerializeToArray(result, dst, offset);
 }
 
 bool Messenger::GetLookupGetMicroBlockFromLookup(
