@@ -3208,7 +3208,8 @@ void Lookup::SendTxnPacketToNodes(uint32_t numShards) {
         if (Node::GetDSLeaderPeer(
                 m_mediator.m_blocklinkchain.GetLatestBlockLink(),
                 m_mediator.m_dsBlockChain.GetLastBlock(),
-                *m_mediator.m_DSCommittee, dsLeaderPeer)) {
+                *m_mediator.m_DSCommittee, m_mediator.m_currentEpochNum,
+                dsLeaderPeer)) {
           toSend.push_back(dsLeaderPeer);
         }
 
